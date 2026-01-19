@@ -1,18 +1,15 @@
 const messages = [
-    "Dios es amor ❤️",
+    "Dios te bendiga 🙏",
     "La fe mueve montañas 🏔️",
-    "Todo lo puedo en Cristo 🙏",
-    "Bendiciones para tu vida ✨",
-    "Bajo la mirada de Dios 🕊️",
+    "Todo lo puedo en Cristo ✨",
+    "Dios es amor ❤️",
     "Caminando con fe ✝️",
     "La paz de Cristo esté contigo",
+    "Eres una bendición 🕊️",
+    "Bajo la mirada de Dios",
+    "Que Su luz ilumine tu camino",
+    "Gracias a Dios por este día",
     "Dios tiene un plan para ti",
-    "Que Su luz ilumine tu camino 🕯️",
-    "Dios es nuestra fortaleza",
-    "En Sus manos todo es posible",
-    "Gracias a Dios por ti 🙏",
-    "Eres una bendición ✨",
-    "Dios te ama infinitamente ❤️",
     "Fíate de Dios con todo tu corazón"
 ];
 
@@ -25,20 +22,21 @@ function createBubble() {
     const randomIndex = Math.floor(Math.random() * messages.length);
     bubble.innerText = messages[randomIndex];
     
-    // Posición aleatoria
-    const xPos = Math.random() * 80 + 10; 
+    // Aparecen en cualquier ancho de la pantalla
+    const xPos = Math.random() * 80 + 5; 
     bubble.style.left = `${xPos}%`;
     
-    // Velocidad aleatoria
-    const duration = Math.random() * 5 + 6; 
+    // Velocidad de subida (entre 5 y 9 segundos)
+    const duration = Math.random() * 4 + 5; 
     bubble.style.animationDuration = `${duration}s`;
 
     container.appendChild(bubble);
 
+    // Se borran al terminar para que la página no se ponga lenta
     setTimeout(() => {
         bubble.remove();
     }, duration * 1000);
 }
 
-// Crear un cartel cada 1 segundo
-setInterval(createBubble, 1000);
+// Crea un cartel nuevo cada 900 milisegundos
+setInterval(createBubble, 900);

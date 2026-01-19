@@ -5,61 +5,67 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(180deg, #b3e5fc 0%, #e1f5fe 100%);
+    background: linear-gradient(180deg, #b3e5fc 0%, #ffffff 100%);
     overflow: hidden;
-    font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+    font-family: 'Segoe UI', sans-serif;
 }
 
 /* Diseño de la Cruz */
 .cross-container {
     position: relative;
-    width: 100px;
-    height: 150px;
+    width: 80px;
+    height: 120px;
     z-index: 10;
-    filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.5));
-    animation: glow 3s infinite ease-in-out;
 }
 
 .cross-vertical {
     position: absolute;
-    left: 40px;
+    left: 30px;
     width: 20px;
-    height: 150px;
-    background: #5d4037; /* Color madera */
-    border-radius: 5px;
+    height: 120px;
+    background: #5d4037;
+    border-radius: 4px;
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
 }
 
 .cross-horizontal {
     position: absolute;
-    top: 40px;
+    top: 30px;
     left: 0;
-    width: 100px;
+    width: 80px;
     height: 20px;
     background: #5d4037;
-    border-radius: 5px;
+    border-radius: 4px;
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
 }
 
-@keyframes glow {
-    0%, 100% { transform: scale(1); filter: drop-shadow(0 0 10px rgba(255,255,255,0.6)); }
-    50% { transform: scale(1.05); filter: drop-shadow(0 0 20px rgba(255,215,0,0.8)); }
-}
-
-/* Carteles flotantes */
+/* Carteles que suben */
 .bubble {
     position: absolute;
-    background: rgba(255, 255, 255, 0.95);
-    padding: 10px 18px;
-    border-radius: 20px;
-    border-left: 4px solid #fbc02d; /* Detalle dorado */
-    font-size: 0.9rem;
-    color: #3e2723;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    animation: floatUp 8s linear forwards;
+    background: white;
+    padding: 12px 20px;
+    border-radius: 15px;
+    font-size: 1rem;
+    color: #2e7d32;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    white-space: nowrap;
+    pointer-events: none;
+    animation: floatUp linear forwards;
 }
 
 @keyframes floatUp {
-    0% { transform: translateY(110vh) opacity(0); }
-    10% { opacity: 1; }
-    90% { opacity: 1; }
-    100% { transform: translateY(-20vh) opacity(0); }
+    0% {
+        transform: translateY(110vh) scale(0.8);
+        opacity: 0;
+    }
+    15% {
+        opacity: 1;
+    }
+    85% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-20vh) scale(1);
+        opacity: 0;
+    }
 }
